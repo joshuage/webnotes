@@ -1,6 +1,44 @@
 1. https://www.gitbook.com 上面的图片像是几个图片层叠的，滚动下滑图片产生拉伸（图片间距离增加），像是css加了一个层叠权重z-index，
    js通过监听滚动scroll listener进行图片下移，问题在图片下移，我现在知道css是静态的，所以按理说应该是js监听事件，然后重写css增加
    一个“header-top”类，然后让这个类一直处于网页正上方；同时z-index小当图片根据scroll的距离给一个scale这样就产生了拉伸的效果。
-   没实践，但因该是这样。
+   没实践，当因该是这样。
 
-2. 
+2. h1 a {表示hierarchy} h1 + a {a after h1, its not that useful due to the use of class} 
+   li.classname, a.classname {combination} a:visited {address on the state}
+
+3. <div style="background-color: teal; margin-bottom: -10px;">
+      <div class="outside" style="border: 10px solid green; padding: 5px 50px;">
+         <div class="inside" style="margin-bottom: 20px; display: block; text-align: center; border-bottom: 5px solid black; padding: 10px 10px;">
+               aaa
+         </div>
+         <div class="inside" style="display: block; text-align: center; border-bottom: 5px solid black; padding: 10px 10px; background-color: tomato;">
+               bbb
+         </div>
+      </div>
+      
+   </div>
+   <div>
+      looking for the margin borader of the last div
+   </div>
+   
+   可以看出margin的目的是调整重叠用的，所以background-color不会显示（如下方没有元素的话），所以利用borader-bottom加颜色的边界；padding
+   决定中间元素和borader的距离
+
+4. <div>
+      <div style="text-align: center;">
+         <div style="border:1px solid red; display: inline;">Im in the middle 2</div>
+      </div>
+   </div>
+
+   这样将inline的元素置中
+
+5. <div style="border: 1px solid tomato; padding: 20px 20px;">
+      <div style="border: 1px solid tomato; padding: 15px 5px; text-align: center; display: inline; margin-left: 800px;">
+         <div style="display: inline; padding: 5px 5px; border: 1px solid tomato;"><a href="www.google.com">a</a></div>
+         <div style="display: inline; padding: 5px 5px; border: 1px solid tomato;">b</div>
+         <div style="display: inline; padding: 5px 5px; border: 1px solid tomato;">c</div>
+      </div>
+   </div>
+
+   这里又可以看到margin的作用，让我想到了absolute和relative的关系；一个是相对于父元素（可以在body任意位置，如果父元素是body），
+   另一是对于自身位置（位置不会被取代）；fixed是固定于窗口位置的，如滚动窗口但广告不会变位置，而absolute会变；
